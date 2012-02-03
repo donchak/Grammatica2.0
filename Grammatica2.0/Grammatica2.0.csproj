@@ -86,6 +86,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\DevExpress.XtraRichEdit.v11.2\11.2.6.0__b88d1754d700e49a\DevExpress.XtraRichEdit.v11.2.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v11.2.Extensions, Version=11.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraSpellChecker.v11.2, Version=11.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\DevExpress.XtraSpellChecker.v11.2\11.2.6.0__b88d1754d700e49a\DevExpress.XtraSpellChecker.v11.2.dll</HintPath>

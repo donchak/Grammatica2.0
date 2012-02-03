@@ -6,8 +6,15 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Grammatica2._0 {
-    public class GramText : XPObject {
+    public class GramText : XPLiteObject {
+        private Guid oid;
+        [Key(true)]
+        public Guid Oid {
+            get { return oid; }
+            set { SetPropertyValue("Oid", ref oid, value); }
+        }
         private string text;
+        [Size(SizeAttribute.Unlimited)]
         public string Text {
             get { return text; }
             set { SetPropertyValue("Text", ref text, value); }
@@ -22,7 +29,13 @@ namespace Grammatica2._0 {
             : base(session) {
         }
     }
-    public class GramTest : XPObject {
+    public class GramTest : XPLiteObject {
+        private Guid oid;
+        [Key(true)]
+        public Guid Oid {
+            get { return oid; }
+            set { SetPropertyValue("Oid", ref oid, value); }
+        }
         private int num;
         public int Num {
             get { return num; }
@@ -61,7 +74,7 @@ namespace Grammatica2._0 {
             string[] parts = str.Split('-');
             int start;
             int length;
-            if (parts.Length == 2 && int.TryParse(parts[0], start) && int.TryParse(parts[1], length)) {
+            if (parts.Length == 2 && int.TryParse(parts[0], out start) && int.TryParse(parts[1], out length)) {
                 Start = start;
                 Length = length;
             }

@@ -30,16 +30,16 @@
             this.iNew = new DevExpress.XtraBars.BarButtonItem();
             this.iOpen = new DevExpress.XtraBars.BarButtonItem();
             this.iClose = new DevExpress.XtraBars.BarButtonItem();
-            this.iSave = new DevExpress.XtraBars.BarButtonItem();
-            this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.iExit = new DevExpress.XtraBars.BarButtonItem();
-            this.mHelp = new DevExpress.XtraBars.BarSubItem();
-            this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.iSave = new DevExpress.XtraBars.BarButtonItem();
+            this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
+            this.mHelp = new DevExpress.XtraBars.BarSubItem();
+            this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.mainMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMdiManager)).BeginInit();
@@ -96,12 +96,14 @@
             this.iNew.Caption = "&Создать";
             this.iNew.Id = 6;
             this.iNew.Name = "iNew";
+            this.iNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNew_ItemClick);
             // 
             // iOpen
             // 
             this.iOpen.Caption = "&Изменить";
             this.iOpen.Id = 4;
             this.iOpen.Name = "iOpen";
+            this.iOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iOpen_ItemClick);
             // 
             // iClose
             // 
@@ -109,37 +111,11 @@
             this.iClose.Id = 5;
             this.iClose.Name = "iClose";
             // 
-            // iSave
-            // 
-            this.iSave.Caption = "&Save";
-            this.iSave.Id = 7;
-            this.iSave.Name = "iSave";
-            // 
-            // iSaveAs
-            // 
-            this.iSaveAs.Caption = "Save &As";
-            this.iSaveAs.Id = 8;
-            this.iSaveAs.Name = "iSaveAs";
-            // 
             // iExit
             // 
             this.iExit.Caption = "В&ыход";
             this.iExit.Id = 9;
             this.iExit.Name = "iExit";
-            // 
-            // mHelp
-            // 
-            this.mHelp.Caption = "&Help";
-            this.mHelp.Id = 10;
-            this.mHelp.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.iAbout)});
-            this.mHelp.Name = "mHelp";
-            // 
-            // iAbout
-            // 
-            this.iAbout.Caption = "&About";
-            this.iAbout.Id = 11;
-            this.iAbout.Name = "iAbout";
             // 
             // barDockControlTop
             // 
@@ -174,6 +150,32 @@
             this.barButtonItem2.Caption = "Open";
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // iSave
+            // 
+            this.iSave.Caption = "&Save";
+            this.iSave.Id = 7;
+            this.iSave.Name = "iSave";
+            // 
+            // iSaveAs
+            // 
+            this.iSaveAs.Caption = "Save &As";
+            this.iSaveAs.Id = 8;
+            this.iSaveAs.Name = "iSaveAs";
+            // 
+            // mHelp
+            // 
+            this.mHelp.Caption = "&Help";
+            this.mHelp.Id = 10;
+            this.mHelp.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.iAbout)});
+            this.mHelp.Name = "mHelp";
+            // 
+            // iAbout
+            // 
+            this.iAbout.Caption = "&About";
+            this.iAbout.Id = 11;
+            this.iAbout.Name = "iAbout";
             // 
             // mainMdiManager
             // 

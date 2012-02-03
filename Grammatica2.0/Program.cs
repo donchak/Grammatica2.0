@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
+using DevExpress.Xpo;
+using DevExpress.Xpo.DB;
+using System.IO;
 
 namespace Grammatica2._0 {
     static class Program {
@@ -10,6 +13,11 @@ namespace Grammatica2._0 {
         /// </summary>
         [STAThread]
         static void Main() {
+            string assemblyPath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+            string connectionString = InMemoryDataStore.GetConnectionString(Path.Combine(assemblyPath, "data.xml"));
+            XpoDefault.DataLayer = XpoDefault.GetDataLayer(connectionString, AutoCreateOption.DatabaseAndSchema);
+            XpoDefault.Session = null;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
