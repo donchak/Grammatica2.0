@@ -29,7 +29,7 @@
             this.mTests = new DevExpress.XtraBars.BarSubItem();
             this.iNew = new DevExpress.XtraBars.BarButtonItem();
             this.iOpen = new DevExpress.XtraBars.BarButtonItem();
-            this.iClose = new DevExpress.XtraBars.BarButtonItem();
+            this.iDelete = new DevExpress.XtraBars.BarButtonItem();
             this.iExit = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -40,9 +40,19 @@
             this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.mHelp = new DevExpress.XtraBars.BarSubItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
-            this.mainMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.xpView1 = new DevExpress.Xpo.XPView(this.components);
+            this.mainUOW = new DevExpress.Xpo.UnitOfWork(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colTitle = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTestsCount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainMdiManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainUOW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -58,7 +68,7 @@
             this.mTests,
             this.barButtonItem2,
             this.iOpen,
-            this.iClose,
+            this.iDelete,
             this.iNew,
             this.iSave,
             this.iSaveAs,
@@ -82,12 +92,12 @@
             // 
             // mTests
             // 
-            this.mTests.Caption = "&Задания";
+            this.mTests.Caption = "&Тексты";
             this.mTests.Id = 0;
             this.mTests.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.iNew),
             new DevExpress.XtraBars.LinkPersistInfo(this.iOpen),
-            new DevExpress.XtraBars.LinkPersistInfo(this.iClose),
+            new DevExpress.XtraBars.LinkPersistInfo(this.iDelete),
             new DevExpress.XtraBars.LinkPersistInfo(this.iExit)});
             this.mTests.Name = "mTests";
             // 
@@ -105,11 +115,12 @@
             this.iOpen.Name = "iOpen";
             this.iOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iOpen_ItemClick);
             // 
-            // iClose
+            // iDelete
             // 
-            this.iClose.Caption = "&Выполнить";
-            this.iClose.Id = 5;
-            this.iClose.Name = "iClose";
+            this.iDelete.Caption = "&Удалить";
+            this.iDelete.Id = 5;
+            this.iDelete.Name = "iDelete";
+            this.iDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iDelete_ItemClick);
             // 
             // iExit
             // 
@@ -122,14 +133,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(915, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(797, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 431);
-            this.barDockControlBottom.Size = new System.Drawing.Size(915, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(797, 0);
             // 
             // barDockControlLeft
             // 
@@ -142,7 +153,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(915, 22);
+            this.barDockControlRight.Location = new System.Drawing.Point(797, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
             // 
             // barButtonItem2
@@ -177,25 +188,85 @@
             this.iAbout.Id = 11;
             this.iAbout.Name = "iAbout";
             // 
-            // mainMdiManager
+            // gridControl1
             // 
-            this.mainMdiManager.MdiParent = this;
+            this.gridControl1.DataSource = this.xpView1;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 22);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.MenuManager = this.barManager;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(797, 409);
+            this.gridControl1.TabIndex = 5;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1,
+            this.gridView2});
+            // 
+            // xpView1
+            // 
+            this.xpView1.ObjectType = typeof(Grammatica2._0.GramText);
+            this.xpView1.Properties.AddRange(new DevExpress.Xpo.ViewProperty[] {
+            new DevExpress.Xpo.ViewProperty("Oid", DevExpress.Xpo.SortDirection.Ascending, "[Oid]", false, true),
+            new DevExpress.Xpo.ViewProperty("Title", DevExpress.Xpo.SortDirection.None, "[Title]", false, true),
+            new DevExpress.Xpo.ViewProperty("TestsCount", DevExpress.Xpo.SortDirection.None, "[Tests][].Count()", false, true)});
+            this.xpView1.Session = this.mainUOW;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTitle,
+            this.colTestsCount});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // colTitle
+            // 
+            this.colTitle.Caption = "Название";
+            this.colTitle.FieldName = "Title";
+            this.colTitle.Name = "colTitle";
+            this.colTitle.Visible = true;
+            this.colTitle.VisibleIndex = 0;
+            // 
+            // colTestsCount
+            // 
+            this.colTestsCount.Caption = "Количество заданий";
+            this.colTestsCount.FieldName = "TestsCount";
+            this.colTestsCount.Name = "colTestsCount";
+            this.colTestsCount.OptionsColumn.ReadOnly = true;
+            this.colTestsCount.Visible = true;
+            this.colTestsCount.VisibleIndex = 1;
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.Name = "gridView2";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 431);
+            this.ClientSize = new System.Drawing.Size(797, 431);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.IsMdiContainer = true;
             this.Name = "Form1";
             this.Text = "Грамматика 2.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainMdiManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainUOW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,14 +282,20 @@
         private DevExpress.XtraBars.BarSubItem mTests;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem iOpen;
-        private DevExpress.XtraBars.BarButtonItem iClose;
+        private DevExpress.XtraBars.BarButtonItem iDelete;
         private DevExpress.XtraBars.BarButtonItem iNew;
         private DevExpress.XtraBars.BarButtonItem iSave;
         private DevExpress.XtraBars.BarButtonItem iSaveAs;
         private DevExpress.XtraBars.BarButtonItem iExit;
         private DevExpress.XtraBars.BarSubItem mHelp;
         private DevExpress.XtraBars.BarButtonItem iAbout;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager mainMdiManager;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.Xpo.UnitOfWork mainUOW;
+        private DevExpress.XtraGrid.Columns.GridColumn colTitle;
+        private DevExpress.XtraGrid.Columns.GridColumn colTestsCount;
+        private DevExpress.Xpo.XPView xpView1;
 
     }
 }

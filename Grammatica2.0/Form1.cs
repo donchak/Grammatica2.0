@@ -27,13 +27,29 @@ namespace Grammatica2._0 {
             using (TextEditForm form = new TextEditForm(Guid.Empty)) {
                 form.ShowDialog(this);
             }
+            xpView1.Reload();
         }
 
         private void iOpen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            ViewRecord record = gridView1.GetFocusedRow() as ViewRecord;
+            if (record == null) return;
+            using (TextEditForm form = new TextEditForm((Guid)record["Oid"])) {
+                form.ShowDialog(this);
+            }
+            xpView1.Reload();
+        }
+
+        private void iDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            ViewRecord record = gridView1.GetFocusedRow() as ViewRecord;
+            if (record == null) return;
             using (UnitOfWork uow = new UnitOfWork()) {
-                GramText gramText = uow.FindObject<GramText>(null);
-                using (TextEditForm form = new TextEditForm(gramText.Oid)) {
-                    form.ShowDialog(this);
+                GramText text = uow.GetObjectByKey<GramText>(record["Oid"]);
+                if (text == null) return;
+                if (XtraMessageBox.Show(this, string.Format("Вы действительно хотите удалить текст \"{0}\"", text.Title),
+                Grammatica2._0.Properties.Resources.Grammarica20, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    text.Delete();
+                    uow.CommitChanges();
+                    xpView1.Reload();
                 }
             }
         }

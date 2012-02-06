@@ -13,13 +13,18 @@ namespace Grammatica2._0 {
             get { return oid; }
             set { SetPropertyValue("Oid", ref oid, value); }
         }
+        private string title;
+        public string Title {
+            get { return title; }
+            set { SetPropertyValue("Title", ref title, value); }
+        }
         private string text;
         [Size(SizeAttribute.Unlimited)]
         public string Text {
             get { return text; }
             set { SetPropertyValue("Text", ref text, value); }
         }
-        [Association("GramText-Tests")]
+        [Association("GramText-Tests"), Aggregated]
         public XPCollection<GramTest> Tests {
             get {
                 return GetCollection<GramTest>("Tests");
@@ -41,6 +46,11 @@ namespace Grammatica2._0 {
             get { return num; }
             set { SetPropertyValue("Num", ref num, value); }
         }
+        private string title;
+        public string Title {
+            get { return title; }
+            set { SetPropertyValue("Title", ref title, value); }
+        }
         private GramText text;
         [Association("GramText-Tests")]
         public GramText Text {
@@ -57,6 +67,10 @@ namespace Grammatica2._0 {
         public string Question {
             get { return question; }
             set { SetPropertyValue("Question", ref question, value); }
+        }
+        [PersistentAlias("ToStr(Num) + ': ' + Title")]
+        public string DisplayName {
+            get { return (string)EvaluateAlias("DisplayName"); }
         }
         public GramTest(Session session)
             : base(session) {
@@ -87,6 +101,15 @@ namespace Grammatica2._0 {
     public class TextPiecesConverter : ValueConverter {
         public override object ConvertFromStorageType(object value) {
             if (value == null) return null;
+            string[] pieces = ((string)value).Split(';');
+            TextPiece[] pieceArray = new TextPiece[pieces.Length];
+            for (int i = 0; i < pieces.Length; i++) {
+                pieceArray[i] = new TextPiece(pieces[i]);
+            }
+            return Array.AsReadOnly<TextPiece>(pieceArray);
+        }
+        public override object ConvertToStorageType(object value) {            
+            if(value == null) return null;
             ReadOnlyCollection<TextPiece> list = (ReadOnlyCollection<TextPiece>)value;
             StringBuilder sb = new StringBuilder();
             foreach (TextPiece item in list) {
@@ -96,15 +119,6 @@ namespace Grammatica2._0 {
                 sb.Append(item.ToString());
             }
             return sb.ToString();
-        }
-        public override object ConvertToStorageType(object value) {            
-            if(value == null) return null;
-            string[] pieces = ((string)value).Split(';');
-            TextPiece[] pieceArray = new TextPiece[pieces.Length];
-            for (int i = 0; i < pieces.Length; i++) {
-                pieceArray[i] = new TextPiece(pieces[i]);
-            }
-            return Array.AsReadOnly<TextPiece>(pieceArray);
         }
         public override Type StorageType {
             get { return typeof(string); }

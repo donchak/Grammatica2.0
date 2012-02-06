@@ -25,11 +25,11 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.sbDeleteTest = new DevExpress.XtraEditors.SimpleButton();
+            this.sbNewTest = new DevExpress.XtraEditors.SimpleButton();
+            this.sbEditTest = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.sbEditText = new DevExpress.XtraEditors.SimpleButton();
             this.lbTests = new DevExpress.XtraEditors.ListBoxControl();
             this.richEdit = new DevExpress.XtraRichEdit.RichEditControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -50,8 +50,6 @@
             this.toggleFontSuperscriptItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontSuperscriptItem();
             this.toggleFontSubscriptItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontSubscriptItem();
             this.changeFontColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontColorItem();
-            this.changeFontBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontBackColorItem();
-            this.clearFormattingItem1 = new DevExpress.XtraRichEdit.UI.ClearFormattingItem();
             this.showFontFormItem1 = new DevExpress.XtraRichEdit.UI.ShowFontFormItem();
             this.paragraphBar = new DevExpress.XtraRichEdit.UI.ParagraphBar();
             this.pasteItem1 = new DevExpress.XtraRichEdit.UI.PasteItem();
@@ -77,7 +75,6 @@
             this.removeSpacingBeforeParagraphItem1 = new DevExpress.XtraRichEdit.UI.RemoveSpacingBeforeParagraphItem();
             this.addSpacingAfterParagraphItem1 = new DevExpress.XtraRichEdit.UI.AddSpacingAfterParagraphItem();
             this.removeSpacingAfterParagraphItem1 = new DevExpress.XtraRichEdit.UI.RemoveSpacingAfterParagraphItem();
-            this.changeParagraphBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeParagraphBackColorItem();
             this.showParagraphFormItem1 = new DevExpress.XtraRichEdit.UI.ShowParagraphFormItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -87,6 +84,7 @@
             this.makeTextUpperCaseItem1 = new DevExpress.XtraRichEdit.UI.MakeTextUpperCaseItem();
             this.makeTextLowerCaseItem1 = new DevExpress.XtraRichEdit.UI.MakeTextLowerCaseItem();
             this.toggleTextCaseItem1 = new DevExpress.XtraRichEdit.UI.ToggleTextCaseItem();
+            this.changeParagraphBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeParagraphBackColorItem();
             this.changeStyleItem1 = new DevExpress.XtraRichEdit.UI.ChangeStyleItem();
             this.repositoryItemRichEditStyleEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditStyleEdit();
             this.showEditStyleFormItem1 = new DevExpress.XtraRichEdit.UI.ShowEditStyleFormItem();
@@ -95,10 +93,17 @@
             this.pnSaveChanges = new DevExpress.XtraEditors.PanelControl();
             this.sbCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btSaveChanges = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pnQuestion = new DevExpress.XtraEditors.PanelControl();
+            this.teTestTitle = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.sbRemoveSelection = new DevExpress.XtraEditors.SimpleButton();
+            this.sbAddSelection = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.testQuestion = new DevExpress.XtraEditors.MemoEdit();
+            this.edQuestion = new DevExpress.XtraEditors.MemoEdit();
             this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController();
+            this.pnTitle = new DevExpress.XtraEditors.PanelControl();
+            this.teTitle = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbTests)).BeginInit();
@@ -108,62 +113,69 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnSaveChanges)).BeginInit();
             this.pnSaveChanges.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.testQuestion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnQuestion)).BeginInit();
+            this.pnQuestion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teTestTitle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edQuestion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnTitle)).BeginInit();
+            this.pnTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teTitle.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 62);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 97);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.simpleButton5);
-            this.splitContainerControl1.Panel1.Controls.Add(this.simpleButton4);
-            this.splitContainerControl1.Panel1.Controls.Add(this.simpleButton2);
+            this.splitContainerControl1.Panel1.Controls.Add(this.sbDeleteTest);
+            this.splitContainerControl1.Panel1.Controls.Add(this.sbNewTest);
+            this.splitContainerControl1.Panel1.Controls.Add(this.sbEditTest);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl1);
-            this.splitContainerControl1.Panel1.Controls.Add(this.simpleButton1);
+            this.splitContainerControl1.Panel1.Controls.Add(this.sbEditText);
             this.splitContainerControl1.Panel1.Controls.Add(this.lbTests);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.richEdit);
             this.splitContainerControl1.Panel2.Controls.Add(this.pnSaveChanges);
-            this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
+            this.splitContainerControl1.Panel2.Controls.Add(this.pnQuestion);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(905, 387);
+            this.splitContainerControl1.Size = new System.Drawing.Size(905, 352);
             this.splitContainerControl1.SplitterPosition = 138;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
-            // simpleButton5
+            // sbDeleteTest
             // 
-            this.simpleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.sbDeleteTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton5.Location = new System.Drawing.Point(5, 353);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(132, 25);
-            this.simpleButton5.TabIndex = 5;
-            this.simpleButton5.Text = "Удалить задание";
+            this.sbDeleteTest.Location = new System.Drawing.Point(5, 318);
+            this.sbDeleteTest.Name = "sbDeleteTest";
+            this.sbDeleteTest.Size = new System.Drawing.Size(132, 25);
+            this.sbDeleteTest.TabIndex = 5;
+            this.sbDeleteTest.Text = "Удалить задание";
+            this.sbDeleteTest.Click += new System.EventHandler(this.sbDeleteTest_Click);
             // 
-            // simpleButton4
+            // sbNewTest
             // 
-            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.sbNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton4.Location = new System.Drawing.Point(5, 291);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(132, 25);
-            this.simpleButton4.TabIndex = 4;
-            this.simpleButton4.Text = "Новое задание";
+            this.sbNewTest.Location = new System.Drawing.Point(5, 256);
+            this.sbNewTest.Name = "sbNewTest";
+            this.sbNewTest.Size = new System.Drawing.Size(132, 25);
+            this.sbNewTest.TabIndex = 4;
+            this.sbNewTest.Text = "Новое задание";
+            this.sbNewTest.Click += new System.EventHandler(this.sbNewTest_Click);
             // 
-            // simpleButton2
+            // sbEditTest
             // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.sbEditTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Location = new System.Drawing.Point(5, 322);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(132, 25);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "Редактировать задание";
+            this.sbEditTest.Location = new System.Drawing.Point(5, 287);
+            this.sbEditTest.Name = "sbEditTest";
+            this.sbEditTest.Size = new System.Drawing.Size(132, 25);
+            this.sbEditTest.TabIndex = 3;
+            this.sbEditTest.Text = "Редактировать задание";
+            this.sbEditTest.Click += new System.EventHandler(this.sbEditTest_Click);
             // 
             // labelControl1
             // 
@@ -173,16 +185,16 @@
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Задания:";
             // 
-            // simpleButton1
+            // sbEditText
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.sbEditText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Location = new System.Drawing.Point(5, 12);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(132, 25);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Редактировать текст";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.sbEditText.Location = new System.Drawing.Point(5, 12);
+            this.sbEditText.Name = "sbEditText";
+            this.sbEditText.Size = new System.Drawing.Size(132, 25);
+            this.sbEditText.TabIndex = 2;
+            this.sbEditText.Text = "Редактировать текст";
+            this.sbEditText.Click += new System.EventHandler(this.sbEditText_Click);
             // 
             // lbTests
             // 
@@ -191,20 +203,21 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTests.Location = new System.Drawing.Point(5, 67);
             this.lbTests.Name = "lbTests";
-            this.lbTests.Size = new System.Drawing.Size(132, 218);
+            this.lbTests.Size = new System.Drawing.Size(132, 183);
             this.lbTests.TabIndex = 2;
             // 
             // richEdit
             // 
             this.richEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richEdit.Location = new System.Drawing.Point(0, 94);
+            this.richEdit.Location = new System.Drawing.Point(0, 150);
             this.richEdit.MenuManager = this.barManager1;
             this.richEdit.Name = "richEdit";
             this.richEdit.ReadOnly = true;
-            this.richEdit.Size = new System.Drawing.Size(762, 247);
+            this.richEdit.Size = new System.Drawing.Size(762, 156);
             this.richEdit.TabIndex = 1;
             this.richEdit.Text = "richEditControl1";
             this.richEdit.Views.PrintLayoutView.ZoomFactor = 0.8F;
+            this.richEdit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.richEdit_MouseUp);
             // 
             // barManager1
             // 
@@ -235,12 +248,10 @@
             this.toggleFontSuperscriptItem1,
             this.toggleFontSubscriptItem1,
             this.changeFontColorItem1,
-            this.changeFontBackColorItem1,
             this.changeTextCaseItem1,
             this.makeTextUpperCaseItem1,
             this.makeTextLowerCaseItem1,
             this.toggleTextCaseItem1,
-            this.clearFormattingItem1,
             this.showFontFormItem1,
             this.toggleBulletedListItem1,
             this.toggleNumberingListItem1,
@@ -305,8 +316,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.toggleFontSuperscriptItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.toggleFontSubscriptItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.changeFontColorItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.changeFontBackColorItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.clearFormattingItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.showFontFormItem1)});
             this.fontBar.OptionsBar.AllowQuickCustomization = false;
             this.fontBar.OptionsBar.DisableCustomization = true;
@@ -400,16 +409,6 @@
             this.changeFontColorItem1.Id = 16;
             this.changeFontColorItem1.Name = "changeFontColorItem1";
             // 
-            // changeFontBackColorItem1
-            // 
-            this.changeFontBackColorItem1.Id = 17;
-            this.changeFontBackColorItem1.Name = "changeFontBackColorItem1";
-            // 
-            // clearFormattingItem1
-            // 
-            this.clearFormattingItem1.Id = 18;
-            this.clearFormattingItem1.Name = "clearFormattingItem1";
-            // 
             // showFontFormItem1
             // 
             this.showFontFormItem1.Id = 19;
@@ -436,7 +435,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.toggleParagraphAlignmentJustifyItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.toggleShowWhitespaceItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.changeParagraphLineSpacingItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.changeParagraphBackColorItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.showParagraphFormItem1)});
             this.paragraphBar.OptionsBar.AllowQuickCustomization = false;
             this.paragraphBar.OptionsBar.DisableCustomization = true;
@@ -584,11 +582,6 @@
             this.removeSpacingAfterParagraphItem1.LargeGlyph = null;
             this.removeSpacingAfterParagraphItem1.Name = "removeSpacingAfterParagraphItem1";
             // 
-            // changeParagraphBackColorItem1
-            // 
-            this.changeParagraphBackColorItem1.Id = 39;
-            this.changeParagraphBackColorItem1.Name = "changeParagraphBackColorItem1";
-            // 
             // showParagraphFormItem1
             // 
             this.showParagraphFormItem1.Id = 40;
@@ -652,6 +645,11 @@
             this.toggleTextCaseItem1.LargeGlyph = null;
             this.toggleTextCaseItem1.Name = "toggleTextCaseItem1";
             // 
+            // changeParagraphBackColorItem1
+            // 
+            this.changeParagraphBackColorItem1.Id = 39;
+            this.changeParagraphBackColorItem1.Name = "changeParagraphBackColorItem1";
+            // 
             // changeStyleItem1
             // 
             this.changeStyleItem1.Edit = this.repositoryItemRichEditStyleEdit1;
@@ -688,7 +686,7 @@
             this.pnSaveChanges.Controls.Add(this.sbCancel);
             this.pnSaveChanges.Controls.Add(this.btSaveChanges);
             this.pnSaveChanges.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnSaveChanges.Location = new System.Drawing.Point(0, 341);
+            this.pnSaveChanges.Location = new System.Drawing.Point(0, 306);
             this.pnSaveChanges.Name = "pnSaveChanges";
             this.pnSaveChanges.Size = new System.Drawing.Size(762, 46);
             this.pnSaveChanges.TabIndex = 3;
@@ -696,8 +694,7 @@
             // 
             // sbCancel
             // 
-            this.sbCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sbCancel.Location = new System.Drawing.Point(618, 12);
             this.sbCancel.Name = "sbCancel";
             this.sbCancel.Size = new System.Drawing.Size(132, 25);
@@ -707,8 +704,7 @@
             // 
             // btSaveChanges
             // 
-            this.btSaveChanges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSaveChanges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btSaveChanges.Location = new System.Drawing.Point(480, 12);
             this.btSaveChanges.Name = "btSaveChanges";
             this.btSaveChanges.Size = new System.Drawing.Size(132, 25);
@@ -716,34 +712,79 @@
             this.btSaveChanges.Text = "Принять изменения";
             this.btSaveChanges.Click += new System.EventHandler(this.btSaveChanges_Click);
             // 
-            // panelControl1
+            // pnQuestion
             // 
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.testQuestion);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(762, 94);
-            this.panelControl1.TabIndex = 2;
-            this.panelControl1.Visible = false;
+            this.pnQuestion.Controls.Add(this.teTestTitle);
+            this.pnQuestion.Controls.Add(this.labelControl4);
+            this.pnQuestion.Controls.Add(this.sbRemoveSelection);
+            this.pnQuestion.Controls.Add(this.sbAddSelection);
+            this.pnQuestion.Controls.Add(this.labelControl2);
+            this.pnQuestion.Controls.Add(this.edQuestion);
+            this.pnQuestion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnQuestion.Location = new System.Drawing.Point(0, 0);
+            this.pnQuestion.Name = "pnQuestion";
+            this.pnQuestion.Size = new System.Drawing.Size(762, 150);
+            this.pnQuestion.TabIndex = 2;
+            this.pnQuestion.Visible = false;
+            // 
+            // teTestTitle
+            // 
+            this.teTestTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.teTestTitle.Location = new System.Drawing.Point(12, 24);
+            this.teTestTitle.MenuManager = this.barManager1;
+            this.teTestTitle.Name = "teTestTitle";
+            this.teTestTitle.Size = new System.Drawing.Size(738, 20);
+            this.teTestTitle.TabIndex = 8;
+            this.teTestTitle.EditValueChanged += new System.EventHandler(this.teTestTitle_EditValueChanged);
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(12, 5);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(102, 13);
+            this.labelControl4.TabIndex = 7;
+            this.labelControl4.Text = "Заголовок задания:";
+            // 
+            // sbRemoveSelection
+            // 
+            this.sbRemoveSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbRemoveSelection.Location = new System.Drawing.Point(618, 116);
+            this.sbRemoveSelection.Name = "sbRemoveSelection";
+            this.sbRemoveSelection.Size = new System.Drawing.Size(132, 25);
+            this.sbRemoveSelection.TabIndex = 6;
+            this.sbRemoveSelection.Text = "Удалить";
+            this.sbRemoveSelection.Click += new System.EventHandler(this.sbRemoveSelection_Click);
+            // 
+            // sbAddSelection
+            // 
+            this.sbAddSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbAddSelection.Location = new System.Drawing.Point(480, 116);
+            this.sbAddSelection.Name = "sbAddSelection";
+            this.sbAddSelection.Size = new System.Drawing.Size(132, 25);
+            this.sbAddSelection.TabIndex = 5;
+            this.sbAddSelection.Text = "Добавить выделенное";
+            this.sbAddSelection.Click += new System.EventHandler(this.sbAddSelection_Click);
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 10);
+            this.labelControl2.Location = new System.Drawing.Point(12, 48);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(78, 13);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "Текст задания:";
             // 
-            // testQuestion
+            // edQuestion
             // 
-            this.testQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.edQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.testQuestion.Location = new System.Drawing.Point(12, 29);
-            this.testQuestion.Name = "testQuestion";
-            this.testQuestion.Size = new System.Drawing.Size(738, 52);
-            this.testQuestion.TabIndex = 0;
+            this.edQuestion.Location = new System.Drawing.Point(12, 67);
+            this.edQuestion.Name = "edQuestion";
+            this.edQuestion.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.edQuestion.Properties.Appearance.Options.UseFont = true;
+            this.edQuestion.Size = new System.Drawing.Size(738, 43);
+            this.edQuestion.TabIndex = 0;
             // 
             // richEditBarController1
             // 
@@ -764,12 +805,10 @@
             this.richEditBarController1.BarItems.Add(this.toggleFontSuperscriptItem1);
             this.richEditBarController1.BarItems.Add(this.toggleFontSubscriptItem1);
             this.richEditBarController1.BarItems.Add(this.changeFontColorItem1);
-            this.richEditBarController1.BarItems.Add(this.changeFontBackColorItem1);
             this.richEditBarController1.BarItems.Add(this.changeTextCaseItem1);
             this.richEditBarController1.BarItems.Add(this.makeTextUpperCaseItem1);
             this.richEditBarController1.BarItems.Add(this.makeTextLowerCaseItem1);
             this.richEditBarController1.BarItems.Add(this.toggleTextCaseItem1);
-            this.richEditBarController1.BarItems.Add(this.clearFormattingItem1);
             this.richEditBarController1.BarItems.Add(this.showFontFormItem1);
             this.richEditBarController1.BarItems.Add(this.toggleBulletedListItem1);
             this.richEditBarController1.BarItems.Add(this.toggleNumberingListItem1);
@@ -798,12 +837,43 @@
             this.richEditBarController1.BarItems.Add(this.replaceItem1);
             this.richEditBarController1.RichEditControl = this.richEdit;
             // 
+            // pnTitle
+            // 
+            this.pnTitle.Controls.Add(this.teTitle);
+            this.pnTitle.Controls.Add(this.labelControl3);
+            this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTitle.Location = new System.Drawing.Point(0, 62);
+            this.pnTitle.Name = "pnTitle";
+            this.pnTitle.Size = new System.Drawing.Size(905, 35);
+            this.pnTitle.TabIndex = 6;
+            this.pnTitle.Visible = false;
+            // 
+            // teTitle
+            // 
+            this.teTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.teTitle.Location = new System.Drawing.Point(113, 7);
+            this.teTitle.MenuManager = this.barManager1;
+            this.teTitle.Name = "teTitle";
+            this.teTitle.Size = new System.Drawing.Size(780, 20);
+            this.teTitle.TabIndex = 4;
+            this.teTitle.EditValueChanged += new System.EventHandler(this.teTitle_EditValueChanged);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(12, 10);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(95, 13);
+            this.labelControl3.TabIndex = 3;
+            this.labelControl3.Text = "Заголовок текста:";
+            // 
             // TextEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 472);
             this.Controls.Add(this.splitContainerControl1);
+            this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -820,11 +890,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnSaveChanges)).EndInit();
             this.pnSaveChanges.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.testQuestion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnQuestion)).EndInit();
+            this.pnQuestion.ResumeLayout(false);
+            this.pnQuestion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teTestTitle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edQuestion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnTitle)).EndInit();
+            this.pnTitle.ResumeLayout(false);
+            this.pnTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teTitle.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -835,14 +910,14 @@
         private DevExpress.XtraRichEdit.RichEditControl richEdit;
         private DevExpress.XtraEditors.ListBoxControl lbTests;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton sbEditText;
+        private DevExpress.XtraEditors.SimpleButton sbEditTest;
+        private DevExpress.XtraEditors.PanelControl pnQuestion;
         private DevExpress.XtraEditors.PanelControl pnSaveChanges;
         private DevExpress.XtraEditors.SimpleButton btSaveChanges;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.MemoEdit testQuestion;
+        private DevExpress.XtraEditors.SimpleButton sbDeleteTest;
+        private DevExpress.XtraEditors.SimpleButton sbNewTest;
+        private DevExpress.XtraEditors.MemoEdit edQuestion;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton sbCancel;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -871,8 +946,6 @@
         private DevExpress.XtraRichEdit.UI.ToggleFontSuperscriptItem toggleFontSuperscriptItem1;
         private DevExpress.XtraRichEdit.UI.ToggleFontSubscriptItem toggleFontSubscriptItem1;
         private DevExpress.XtraRichEdit.UI.ChangeFontColorItem changeFontColorItem1;
-        private DevExpress.XtraRichEdit.UI.ChangeFontBackColorItem changeFontBackColorItem1;
-        private DevExpress.XtraRichEdit.UI.ClearFormattingItem clearFormattingItem1;
         private DevExpress.XtraRichEdit.UI.ShowFontFormItem showFontFormItem1;
         private DevExpress.XtraRichEdit.UI.ParagraphBar paragraphBar;
         private DevExpress.XtraRichEdit.UI.ToggleBulletedListItem toggleBulletedListItem1;
@@ -906,6 +979,13 @@
         private DevExpress.XtraRichEdit.UI.FindItem findItem1;
         private DevExpress.XtraRichEdit.UI.ReplaceItem replaceItem1;
         private DevExpress.XtraRichEdit.UI.RichEditBarController richEditBarController1;
+        private DevExpress.XtraEditors.SimpleButton sbRemoveSelection;
+        private DevExpress.XtraEditors.SimpleButton sbAddSelection;
+        private DevExpress.XtraEditors.PanelControl pnTitle;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.TextEdit teTitle;
+        private DevExpress.XtraEditors.TextEdit teTestTitle;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
 
     }
 }

@@ -59,5 +59,14 @@ namespace Grammatica2._0.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Грамматика 2.0.
+        /// </summary>
+        internal static string Grammarica20 {
+            get {
+                return ResourceManager.GetString("Grammarica20", resourceCulture);
+            }
+        }
     }
 }
