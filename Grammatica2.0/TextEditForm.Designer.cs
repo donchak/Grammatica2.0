@@ -326,9 +326,7 @@
             // changeFontNameItem1
             // 
             this.changeFontNameItem1.Edit = this.repositoryItemFontEdit1;
-            this.changeFontNameItem1.Glyph = null;
             this.changeFontNameItem1.Id = 4;
-            this.changeFontNameItem1.LargeGlyph = null;
             this.changeFontNameItem1.Name = "changeFontNameItem1";
             // 
             // repositoryItemFontEdit1
@@ -341,9 +339,7 @@
             // changeFontSizeItem1
             // 
             this.changeFontSizeItem1.Edit = this.repositoryItemRichEditFontSizeEdit1;
-            this.changeFontSizeItem1.Glyph = null;
             this.changeFontSizeItem1.Id = 5;
-            this.changeFontSizeItem1.LargeGlyph = null;
             this.changeFontSizeItem1.Name = "changeFontSizeItem1";
             // 
             // repositoryItemRichEditFontSizeEdit1
@@ -528,58 +524,42 @@
             // 
             // setSingleParagraphSpacingItem1
             // 
-            this.setSingleParagraphSpacingItem1.Glyph = null;
             this.setSingleParagraphSpacingItem1.Id = 31;
-            this.setSingleParagraphSpacingItem1.LargeGlyph = null;
             this.setSingleParagraphSpacingItem1.Name = "setSingleParagraphSpacingItem1";
             // 
             // setSesquialteralParagraphSpacingItem1
             // 
-            this.setSesquialteralParagraphSpacingItem1.Glyph = null;
             this.setSesquialteralParagraphSpacingItem1.Id = 32;
-            this.setSesquialteralParagraphSpacingItem1.LargeGlyph = null;
             this.setSesquialteralParagraphSpacingItem1.Name = "setSesquialteralParagraphSpacingItem1";
             // 
             // setDoubleParagraphSpacingItem1
             // 
-            this.setDoubleParagraphSpacingItem1.Glyph = null;
             this.setDoubleParagraphSpacingItem1.Id = 33;
-            this.setDoubleParagraphSpacingItem1.LargeGlyph = null;
             this.setDoubleParagraphSpacingItem1.Name = "setDoubleParagraphSpacingItem1";
             // 
             // showLineSpacingFormItem1
             // 
-            this.showLineSpacingFormItem1.Glyph = null;
             this.showLineSpacingFormItem1.Id = 34;
-            this.showLineSpacingFormItem1.LargeGlyph = null;
             this.showLineSpacingFormItem1.Name = "showLineSpacingFormItem1";
             // 
             // addSpacingBeforeParagraphItem1
             // 
-            this.addSpacingBeforeParagraphItem1.Glyph = null;
             this.addSpacingBeforeParagraphItem1.Id = 35;
-            this.addSpacingBeforeParagraphItem1.LargeGlyph = null;
             this.addSpacingBeforeParagraphItem1.Name = "addSpacingBeforeParagraphItem1";
             // 
             // removeSpacingBeforeParagraphItem1
             // 
-            this.removeSpacingBeforeParagraphItem1.Glyph = null;
             this.removeSpacingBeforeParagraphItem1.Id = 36;
-            this.removeSpacingBeforeParagraphItem1.LargeGlyph = null;
             this.removeSpacingBeforeParagraphItem1.Name = "removeSpacingBeforeParagraphItem1";
             // 
             // addSpacingAfterParagraphItem1
             // 
-            this.addSpacingAfterParagraphItem1.Glyph = null;
             this.addSpacingAfterParagraphItem1.Id = 37;
-            this.addSpacingAfterParagraphItem1.LargeGlyph = null;
             this.addSpacingAfterParagraphItem1.Name = "addSpacingAfterParagraphItem1";
             // 
             // removeSpacingAfterParagraphItem1
             // 
-            this.removeSpacingAfterParagraphItem1.Glyph = null;
             this.removeSpacingAfterParagraphItem1.Id = 38;
-            this.removeSpacingAfterParagraphItem1.LargeGlyph = null;
             this.removeSpacingAfterParagraphItem1.Name = "removeSpacingAfterParagraphItem1";
             // 
             // showParagraphFormItem1
@@ -626,23 +606,17 @@
             // 
             // makeTextUpperCaseItem1
             // 
-            this.makeTextUpperCaseItem1.Glyph = null;
             this.makeTextUpperCaseItem1.Id = 42;
-            this.makeTextUpperCaseItem1.LargeGlyph = null;
             this.makeTextUpperCaseItem1.Name = "makeTextUpperCaseItem1";
             // 
             // makeTextLowerCaseItem1
             // 
-            this.makeTextLowerCaseItem1.Glyph = null;
             this.makeTextLowerCaseItem1.Id = 43;
-            this.makeTextLowerCaseItem1.LargeGlyph = null;
             this.makeTextLowerCaseItem1.Name = "makeTextLowerCaseItem1";
             // 
             // toggleTextCaseItem1
             // 
-            this.toggleTextCaseItem1.Glyph = null;
             this.toggleTextCaseItem1.Id = 44;
-            this.toggleTextCaseItem1.LargeGlyph = null;
             this.toggleTextCaseItem1.Name = "toggleTextCaseItem1";
             // 
             // changeParagraphBackColorItem1
@@ -653,9 +627,7 @@
             // changeStyleItem1
             // 
             this.changeStyleItem1.Edit = this.repositoryItemRichEditStyleEdit1;
-            this.changeStyleItem1.Glyph = null;
             this.changeStyleItem1.Id = 45;
-            this.changeStyleItem1.LargeGlyph = null;
             this.changeStyleItem1.Name = "changeStyleItem1";
             // 
             // repositoryItemRichEditStyleEdit1
@@ -736,7 +708,6 @@
             this.teTestTitle.Name = "teTestTitle";
             this.teTestTitle.Size = new System.Drawing.Size(738, 20);
             this.teTestTitle.TabIndex = 8;
-            this.teTestTitle.EditValueChanged += new System.EventHandler(this.teTestTitle_EditValueChanged);
             // 
             // labelControl4
             // 
@@ -880,6 +851,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "TextEditForm";
             this.Text = "TextEditForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TextEditForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);

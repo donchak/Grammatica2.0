@@ -38,22 +38,7 @@ namespace Grammatica2._0 {
         }
 
         void UpdateTestPieces() {
-            CharacterProperties allProp = richEdit.Document.BeginUpdateCharacters(richEdit.Document.Range);
-            try {
-                allProp.BackColor = richEdit.Document.DefaultCharacterProperties.BackColor;
-            } finally {
-                richEdit.Document.EndUpdateCharacters(allProp);
-            }
-            if (currentTest == null || currentPieces == null) return;
-            foreach (var piece in currentPieces) {
-               DocumentRange range = richEdit.Document.CreateRange(piece.Start, piece.Length);
-               CharacterProperties properties = richEdit.Document.BeginUpdateCharacters(range);
-               try {
-                   properties.BackColor = Color.LightBlue;
-               } finally {
-                   richEdit.Document.EndUpdateCharacters(properties);
-               }
-            }
+            DocumentHelpers.UpdateDocumentPieces(richEdit, currentPieces);
         }
         void SetState(TextEditMode mode) {
             if (currentMode == mode) return;
@@ -209,44 +194,14 @@ namespace Grammatica2._0 {
 
         private void sbAddSelection_Click(object sender, EventArgs e) {
             if (currentMode != TextEditMode.EditTest) return;
-            int start = richEdit.Document.Selection.Start.ToInt();
-            int length = richEdit.Document.Selection.Length;
-            if (length == 0) return;
-            for (int i = 0; i < currentPieces.Count; i++) {
-                TextPiece currentP = currentPieces[i];
-                if (currentP.Start == start && currentP.Length == length) {
-                    return;
-                }
-                if ((currentP.Start >= start && currentP.Start <= start + length) || ((currentP.Start + currentP.Length) >= start && (currentP.Start + currentP.Length) <= start + length) 
-                    || (start >= currentP.Start && start <= currentP.Start + currentP.Length) || ((start + length) >= currentP.Start && (start + length) <= currentP.Start + currentP.Length)) {
-                    return;
-                }
-            }
-            currentPieces.Add(new TextPiece(start, length));
+            DocumentHelpers.AddSelection(richEdit, currentPieces);
             UpdateTestPieces();
         }
 
         private void sbRemoveSelection_Click(object sender, EventArgs e) {
             if (currentMode != TextEditMode.EditTest) return;
-            int start = richEdit.Document.Selection.Start.ToInt();
-            int length = richEdit.Document.Selection.Length;
-            int foundIndex = -1;
-            for (int i = 0; i < currentPieces.Count; i++) {
-                TextPiece currentP = currentPieces[i];
-                if ((currentP.Start >= start && currentP.Start <= start + length) || ((currentP.Start + currentP.Length) >= start && (currentP.Start + currentP.Length) <= start + length) 
-                    || (start >= currentP.Start && start <= currentP.Start + currentP.Length) || ((start + length) >= currentP.Start && (start + length) <= currentP.Start + currentP.Length)) {
-                    foundIndex = i;
-                    break;
-                }
-            }
-            if (foundIndex >= 0) {
-                currentPieces.RemoveAt(foundIndex);   
-            }
+            DocumentHelpers.RemoveSelection(richEdit, currentPieces);
             UpdateTestPieces();
-        }
-
-        private void teTestTitle_EditValueChanged(object sender, EventArgs e) {
-
         }
 
         private void teTitle_EditValueChanged(object sender, EventArgs e) {

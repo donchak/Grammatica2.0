@@ -66,7 +66,7 @@ namespace Grammatica2._0 {
         private string question;
         public string Question {
             get { return question; }
-            set { SetPropertyValue("Question", ref question, value); }
+            set { SetPropertyValue<string>("Question", ref question, value); }
         }
         [PersistentAlias("ToStr(Num) + ': ' + Title")]
         public string DisplayName {
@@ -77,9 +77,58 @@ namespace Grammatica2._0 {
         }
     }
 
+    public class GramTestResult : XPLiteObject {
+        public static string PreviouseName = string.Empty;
+        private Guid oid;
+        [Key(true)]
+        public Guid Oid {
+            get { return oid; }
+            set { SetPropertyValue<Guid>("Oid", ref oid, value); }
+        }
+        private string name;
+        [Size(255)]
+        public string Name {
+            get { return name; }
+            set { SetPropertyValue("Name", ref name, value); }
+        }
+        private long executionTime;
+        public long ExecutionTime {
+            get { return executionTime; }
+            set { SetPropertyValue("ExecutionTime", ref executionTime, value); }
+        }
+        private int testCount;
+        public int TestCount {
+            get { return testCount; }
+            set { SetPropertyValue<int>("TestCount", ref testCount, value); }
+        }
+        private int testSkippedCount;
+        public int TestSkippedCount {
+            get { return testSkippedCount; }
+            set { SetPropertyValue<int>("TestSkippedCount", ref testSkippedCount, value); }
+        }
+        private int mistakeCount;
+        public int MistakeCount {
+            get { return mistakeCount; }
+            set { SetPropertyValue<int>("MistakeCount", ref mistakeCount, value); }
+        }
+        private int resultingScore;
+        public int ResultingScore {
+            get { return resultingScore; }
+            set { SetPropertyValue<int>("ResultingScore", ref resultingScore, value); }
+        }
+        private GramText text;
+        public GramText Text {
+            get { return text; }
+            set { SetPropertyValue<GramText>("Text", ref text, value); }
+        }
+        public GramTestResult(Session session)
+            : base(session) {
+        }
+    }
+
     public class TextPiece {
-        public int Start;
-        public int Length;
+        public readonly int Start;
+        public readonly int Length;
         public TextPiece(int start, int length) {
             Start = start;
             Length = length;

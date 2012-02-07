@@ -54,5 +54,19 @@ namespace Grammatica2._0 {
             }
         }
 
+        private void iExecute_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            ViewRecord record = gridView1.GetFocusedRow() as ViewRecord;
+            if (record == null) return;
+            using (TestForm form = new TestForm((Guid)record["Oid"])) {
+                form.ShowDialog(this);
+            }
+        }
+
+        private void iResults_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using (ResultsForm form = new ResultsForm()) {
+                form.ShowDialog(this);
+            }
+        }
+
     }
 }
