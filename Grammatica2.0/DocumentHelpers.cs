@@ -71,7 +71,7 @@ namespace Grammatica2._0 {
                     if (usedPieceDict.ContainsKey(i)) continue;
                     int currentStart = currentPieces[i].Start;
                     int currentEnd = currentPieces[i].Start + currentPieces[i].Length;
-                    if (Math.Abs(checkStart - currentStart) <= 1 && Math.Abs(checkEnd - currentEnd) <= 1) {
+                    if (Math.Abs(checkStart - currentStart) <= 4 && Math.Abs(checkEnd - currentEnd) <= 4) {
                         found = true;
                         usedPieceDict[i] = true;
                         break;
