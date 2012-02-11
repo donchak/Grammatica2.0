@@ -57,6 +57,11 @@ namespace Grammatica2._0 {
             get { return text; }
             set { SetPropertyValue<GramText>("Text", ref text, value); }
         }
+        private string promt;
+        public string Promt {
+            get { return promt; }
+            set { SetPropertyValue("Promt", ref promt, value); }
+        }
         private ReadOnlyCollection<TextPiece> pieces;
         [ValueConverter(typeof(TextPiecesConverter))]
         public ReadOnlyCollection<TextPiece> Pieces {

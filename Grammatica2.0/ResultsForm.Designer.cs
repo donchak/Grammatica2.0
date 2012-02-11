@@ -58,6 +58,7 @@
             // sbExit
             // 
             this.sbExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.sbExit.Location = new System.Drawing.Point(776, 11);
             this.sbExit.Name = "sbExit";
             this.sbExit.Size = new System.Drawing.Size(100, 23);
@@ -107,42 +108,42 @@
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 1;
+            this.colName.VisibleIndex = 0;
             // 
             // colExecutionTime
             // 
             this.colExecutionTime.FieldName = "ExecutionTime";
             this.colExecutionTime.Name = "colExecutionTime";
             this.colExecutionTime.Visible = true;
-            this.colExecutionTime.VisibleIndex = 2;
+            this.colExecutionTime.VisibleIndex = 1;
             // 
             // colTestCount
             // 
             this.colTestCount.FieldName = "TestCount";
             this.colTestCount.Name = "colTestCount";
             this.colTestCount.Visible = true;
-            this.colTestCount.VisibleIndex = 3;
+            this.colTestCount.VisibleIndex = 2;
             // 
             // colTestSkippedCount
             // 
             this.colTestSkippedCount.FieldName = "TestSkippedCount";
             this.colTestSkippedCount.Name = "colTestSkippedCount";
             this.colTestSkippedCount.Visible = true;
-            this.colTestSkippedCount.VisibleIndex = 4;
+            this.colTestSkippedCount.VisibleIndex = 3;
             // 
             // colMistakeCount
             // 
             this.colMistakeCount.FieldName = "MistakeCount";
             this.colMistakeCount.Name = "colMistakeCount";
             this.colMistakeCount.Visible = true;
-            this.colMistakeCount.VisibleIndex = 5;
+            this.colMistakeCount.VisibleIndex = 4;
             // 
             // colResultingScore
             // 
             this.colResultingScore.FieldName = "ResultingScore";
             this.colResultingScore.Name = "colResultingScore";
             this.colResultingScore.Visible = true;
-            this.colResultingScore.VisibleIndex = 6;
+            this.colResultingScore.VisibleIndex = 5;
             // 
             // gridView2
             // 

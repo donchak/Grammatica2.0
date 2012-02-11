@@ -31,6 +31,12 @@ namespace Grammatica2._0 {
         }
 
         private void iOpen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            int[] selectedRows = gridView1.GetSelectedRows();
+            if (selectedRows.Length > 1) {
+                XtraMessageBox.Show(this, "Для редактирования необходимо выбрать только один текст.",
+                    Grammatica2._0.Properties.Resources.Grammarica20, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             ViewRecord record = gridView1.GetFocusedRow() as ViewRecord;
             if (record == null) return;
             using (TextEditForm form = new TextEditForm((Guid)record["Oid"])) {
@@ -40,6 +46,12 @@ namespace Grammatica2._0 {
         }
 
         private void iDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            int[] selectedRows = gridView1.GetSelectedRows();
+            if (selectedRows.Length > 1) {
+                XtraMessageBox.Show(this, "Для удаления необходимо выбрать только один текст.",
+                    Grammatica2._0.Properties.Resources.Grammarica20, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             ViewRecord record = gridView1.GetFocusedRow() as ViewRecord;
             if (record == null) return;
             using (UnitOfWork uow = new UnitOfWork()) {
@@ -55,9 +67,15 @@ namespace Grammatica2._0 {
         }
 
         private void iExecute_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            ViewRecord record = gridView1.GetFocusedRow() as ViewRecord;
-            if (record == null) return;
-            using (TestForm form = new TestForm((Guid)record["Oid"])) {
+            int[] selectedRows = gridView1.GetSelectedRows();
+            if (selectedRows.Length == 0) return;
+            List<Guid> rowsToTest = new List<Guid>(selectedRows.Length);
+            foreach (int row in selectedRows) {
+                ViewRecord record = gridView1.GetRow(row) as ViewRecord;
+                if (record == null) continue;
+                rowsToTest.Add((Guid)record["Oid"]);
+            }
+            using (TestForm form = new TestForm(rowsToTest)) {
                 form.ShowDialog(this);
             }
         }

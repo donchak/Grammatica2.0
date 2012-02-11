@@ -94,6 +94,8 @@
             this.sbCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btSaveChanges = new DevExpress.XtraEditors.SimpleButton();
             this.pnQuestion = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.edPromt = new DevExpress.XtraEditors.MemoEdit();
             this.teTestTitle = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.sbRemoveSelection = new DevExpress.XtraEditors.SimpleButton();
@@ -115,6 +117,7 @@
             this.pnSaveChanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnQuestion)).BeginInit();
             this.pnQuestion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edPromt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTestTitle.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edQuestion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
@@ -209,11 +212,11 @@
             // richEdit
             // 
             this.richEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richEdit.Location = new System.Drawing.Point(0, 150);
+            this.richEdit.Location = new System.Drawing.Point(0, 212);
             this.richEdit.MenuManager = this.barManager1;
             this.richEdit.Name = "richEdit";
             this.richEdit.ReadOnly = true;
-            this.richEdit.Size = new System.Drawing.Size(762, 156);
+            this.richEdit.Size = new System.Drawing.Size(762, 94);
             this.richEdit.TabIndex = 1;
             this.richEdit.Text = "richEditControl1";
             this.richEdit.Views.PrintLayoutView.ZoomFactor = 0.8F;
@@ -686,6 +689,8 @@
             // 
             // pnQuestion
             // 
+            this.pnQuestion.Controls.Add(this.labelControl5);
+            this.pnQuestion.Controls.Add(this.edPromt);
             this.pnQuestion.Controls.Add(this.teTestTitle);
             this.pnQuestion.Controls.Add(this.labelControl4);
             this.pnQuestion.Controls.Add(this.sbRemoveSelection);
@@ -695,9 +700,29 @@
             this.pnQuestion.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnQuestion.Location = new System.Drawing.Point(0, 0);
             this.pnQuestion.Name = "pnQuestion";
-            this.pnQuestion.Size = new System.Drawing.Size(762, 150);
+            this.pnQuestion.Size = new System.Drawing.Size(762, 212);
             this.pnQuestion.TabIndex = 2;
             this.pnQuestion.Visible = false;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl5.Location = new System.Drawing.Point(12, 117);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(58, 13);
+            this.labelControl5.TabIndex = 10;
+            this.labelControl5.Text = "Подсказка:";
+            // 
+            // edPromt
+            // 
+            this.edPromt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.edPromt.Location = new System.Drawing.Point(12, 136);
+            this.edPromt.Name = "edPromt";
+            this.edPromt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.edPromt.Properties.Appearance.Options.UseFont = true;
+            this.edPromt.Size = new System.Drawing.Size(738, 36);
+            this.edPromt.TabIndex = 9;
             // 
             // teTestTitle
             // 
@@ -720,7 +745,7 @@
             // sbRemoveSelection
             // 
             this.sbRemoveSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.sbRemoveSelection.Location = new System.Drawing.Point(618, 116);
+            this.sbRemoveSelection.Location = new System.Drawing.Point(618, 178);
             this.sbRemoveSelection.Name = "sbRemoveSelection";
             this.sbRemoveSelection.Size = new System.Drawing.Size(132, 25);
             this.sbRemoveSelection.TabIndex = 6;
@@ -730,7 +755,7 @@
             // sbAddSelection
             // 
             this.sbAddSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.sbAddSelection.Location = new System.Drawing.Point(480, 116);
+            this.sbAddSelection.Location = new System.Drawing.Point(480, 178);
             this.sbAddSelection.Name = "sbAddSelection";
             this.sbAddSelection.Size = new System.Drawing.Size(132, 25);
             this.sbAddSelection.TabIndex = 5;
@@ -754,7 +779,7 @@
             this.edQuestion.Name = "edQuestion";
             this.edQuestion.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.edQuestion.Properties.Appearance.Options.UseFont = true;
-            this.edQuestion.Size = new System.Drawing.Size(738, 43);
+            this.edQuestion.Size = new System.Drawing.Size(738, 46);
             this.edQuestion.TabIndex = 0;
             // 
             // richEditBarController1
@@ -850,7 +875,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "TextEditForm";
-            this.Text = "TextEditForm";
+            this.Text = "Окно редактирования";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TextEditForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -865,6 +890,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnQuestion)).EndInit();
             this.pnQuestion.ResumeLayout(false);
             this.pnQuestion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edPromt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTestTitle.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edQuestion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
@@ -958,6 +984,8 @@
         private DevExpress.XtraEditors.TextEdit teTitle;
         private DevExpress.XtraEditors.TextEdit teTestTitle;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.MemoEdit edPromt;
 
     }
 }

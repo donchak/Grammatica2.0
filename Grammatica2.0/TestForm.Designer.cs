@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.richEdit = new DevExpress.XtraRichEdit.RichEditControl();
             this.pnTestInfo = new DevExpress.XtraEditors.PanelControl();
+            this.sbPromt = new DevExpress.XtraEditors.SimpleButton();
             this.sbRemoveSelection = new DevExpress.XtraEditors.SimpleButton();
             this.sbAddSelection = new DevExpress.XtraEditors.SimpleButton();
             this.meQuestion = new DevExpress.XtraEditors.MemoEdit();
@@ -52,6 +53,7 @@
             // 
             // pnTestInfo
             // 
+            this.pnTestInfo.Controls.Add(this.sbPromt);
             this.pnTestInfo.Controls.Add(this.sbRemoveSelection);
             this.pnTestInfo.Controls.Add(this.sbAddSelection);
             this.pnTestInfo.Controls.Add(this.meQuestion);
@@ -61,6 +63,15 @@
             this.pnTestInfo.Size = new System.Drawing.Size(829, 95);
             this.pnTestInfo.TabIndex = 3;
             this.pnTestInfo.Visible = false;
+            // 
+            // sbPromt
+            // 
+            this.sbPromt.Location = new System.Drawing.Point(12, 64);
+            this.sbPromt.Name = "sbPromt";
+            this.sbPromt.Size = new System.Drawing.Size(28, 23);
+            this.sbPromt.TabIndex = 9;
+            this.sbPromt.Text = "?";
+            this.sbPromt.Click += new System.EventHandler(this.sbPromt_Click);
             // 
             // sbRemoveSelection
             // 
@@ -169,5 +180,6 @@
         private DevExpress.XtraEditors.MemoEdit meQuestion;
         private DevExpress.XtraEditors.SimpleButton sbRemoveSelection;
         private DevExpress.XtraEditors.SimpleButton sbAddSelection;
+        private DevExpress.XtraEditors.SimpleButton sbPromt;
     }
 }

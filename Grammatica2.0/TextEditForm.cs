@@ -101,6 +101,7 @@ namespace Grammatica2._0 {
                     currentTest.Pieces = currentPieces.Count == 0 ? null : currentPieces.AsReadOnly();
                     currentTest.Title = teTestTitle.Text;
                     currentTest.Question = edQuestion.Text;
+                    currentTest.Promt = edPromt.Text;
                     break;
             }
             SetState(TextEditMode.Main);
@@ -130,6 +131,15 @@ namespace Grammatica2._0 {
             object maxNum = gramText.Evaluate(CriteriaOperator.Parse("[Tests].Max(Num)"));
             newTest.Num = maxNum == null ? 1 : ((int)maxNum) + 1;
             gramText.Tests.Add(newTest);
+            if (currentMode == TextEditMode.EditTest) {
+                SetState(TextEditMode.Main);
+            }
+            currentTest = newTest;
+            currentPieces = newTest.Pieces == null ? new List<TextPiece>() : new List<TextPiece>(newTest.Pieces);
+            teTestTitle.Text = newTest.Title;
+            edQuestion.Text = newTest.Question;
+            edPromt.Text = newTest.Promt;
+            SetState(TextEditMode.EditTest);
         }
 
         private void sbDeleteTest_Click(object sender, EventArgs e) {
@@ -159,6 +169,7 @@ namespace Grammatica2._0 {
             currentPieces = selectedTest.Pieces == null ? new List<TextPiece>() : new List<TextPiece>(selectedTest.Pieces);
             teTestTitle.Text = selectedTest.Title;
             edQuestion.Text = selectedTest.Question;
+            edPromt.Text = selectedTest.Promt;
             SetState(TextEditMode.EditTest);
         }
 

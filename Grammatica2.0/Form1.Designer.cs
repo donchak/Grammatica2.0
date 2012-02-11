@@ -32,6 +32,7 @@
             this.iDelete = new DevExpress.XtraBars.BarButtonItem();
             this.iExecute = new DevExpress.XtraBars.BarButtonItem();
             this.iExit = new DevExpress.XtraBars.BarButtonItem();
+            this.iResults = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -41,6 +42,7 @@
             this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.mHelp = new DevExpress.XtraBars.BarSubItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.xpView1 = new DevExpress.Xpo.XPView(this.components);
             this.mainUOW = new DevExpress.Xpo.UnitOfWork(this.components);
@@ -49,8 +51,6 @@
             this.colTestsCount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.iResults = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpView1)).BeginInit();
@@ -145,6 +145,13 @@
             this.iExit.Id = 9;
             this.iExit.Name = "iExit";
             // 
+            // iResults
+            // 
+            this.iResults.Caption = "Результаты";
+            this.iResults.Id = 14;
+            this.iResults.Name = "iResults";
+            this.iResults.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iResults_ItemClick);
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -205,6 +212,12 @@
             this.iAbout.Id = 11;
             this.iAbout.Name = "iAbout";
             // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "barSubItem1";
+            this.barSubItem1.Id = 13;
+            this.barSubItem1.Name = "barSubItem1";
+            // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.xpView1;
@@ -238,7 +251,12 @@
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.AutoSelectAllInEditor = false;
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
+            this.gridView1.OptionsMenu.EnableFooterMenu = false;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -264,19 +282,6 @@
             // 
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
-            // 
-            // barSubItem1
-            // 
-            this.barSubItem1.Caption = "barSubItem1";
-            this.barSubItem1.Id = 13;
-            this.barSubItem1.Name = "barSubItem1";
-            // 
-            // iResults
-            // 
-            this.iResults.Caption = "Результаты";
-            this.iResults.Id = 14;
-            this.iResults.Name = "iResults";
-            this.iResults.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iResults_ItemClick);
             // 
             // Form1
             // 

@@ -12,34 +12,48 @@ using System.Collections.ObjectModel;
 namespace Grammatica2._0 {
     public partial class TestForm : DevExpress.XtraEditors.XtraForm {
         readonly UnitOfWork uow;
-        readonly GramText gramText;
+        readonly List<GramText> gramTextList = new List<GramText>();
         readonly GramTestResult gramTestResult;
         readonly List<TextPiece> currentPieces = new List<TextPiece>();
         readonly DateTime startTime;
+        GramText currentGramText = null;
+        string promtText;
         ReadOnlyCollection<TextPiece> checkPieces;
         bool textComplete = false;
+        int currentTextIndex = -1;
         int currentTestIndex = -1;
-        public TestForm(Guid oid) {
+        public TestForm(List<Guid> textList) {
             InitializeComponent();
             uow = new UnitOfWork();
-            if (oid == Guid.Empty) {
-                gramText = new GramText(uow);
-            } else {
-                gramText = uow.GetObjectByKey<GramText>(oid);
+            int testCount = 0;
+            foreach (Guid oid in textList) {
+                if (oid == Guid.Empty) {
+                    continue;
+                }
+                GramText text = uow.GetObjectByKey<GramText>(oid);
+                if (text == null) continue;
+                testCount += text.Tests.Count;
+                gramTextList.Add(text);
             }
             gramTestResult = new GramTestResult(uow);
-            gramTestResult.Text = gramText;
-            gramTestResult.TestCount = gramText.Tests.Count;
+            gramTestResult.Text = gramTextList.Count > 0 ? gramTextList[0] : null;
+            gramTestResult.TestCount = testCount;
             gramTestResult.TestSkippedCount = 0;
             gramTestResult.MistakeCount = 0;
             gramTestResult.ResultingScore = 0;
             gramTestResult.ExecutionTime = 0;
-            Text = gramText.Title;
-            richEdit.RtfText = gramText.Text;
+            Text = "";
             richEdit.ReadOnly = true;
             startTime = DateTime.Now;
         }
 
+        void AllComplete() {
+            gramTestResult.ExecutionTime = DateTime.Now.Subtract(startTime).Ticks;
+            uow.CommitChanges();
+            textComplete = true;
+            XtraMessageBox.Show(this, "Выполнения заданий завершено.", Grammatica2._0.Properties.Resources.Grammarica20, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
+        }
         private void NextTest(bool skipped) {
             if (!pnTestInfo.Visible) pnTestInfo.Visible = true;
             if (currentTestIndex >= 0) {
@@ -57,16 +71,21 @@ namespace Grammatica2._0 {
             }
             currentPieces.Clear();
             currentTestIndex++;
-            if (currentTestIndex >= gramText.Tests.Count) {
-                gramTestResult.ExecutionTime = DateTime.Now.Subtract(startTime).Ticks;
-                uow.CommitChanges();
-                textComplete = true;
-                XtraMessageBox.Show(this, "Выполнения заданий завершено.", Grammatica2._0.Properties.Resources.Grammarica20, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-                return;
+            if (currentGramText == null || currentTestIndex >= currentGramText.Tests.Count) {
+                currentTextIndex++;
+                if (currentTextIndex >= gramTextList.Count) {
+                    AllComplete();
+                    return;
+                }
+                currentGramText = gramTextList[currentTextIndex];
+                currentTestIndex = 0;
+                Text = currentGramText.Title;
+                richEdit.RtfText = currentGramText.Text;
             }
-            GramTest test = gramText.Tests[currentTestIndex];
+            GramTest test = currentGramText.Tests[currentTestIndex];
             meQuestion.Text = test.Question;
+            promtText = test.Promt;
+            sbPromt.Visible = !string.IsNullOrEmpty(promtText.Trim());
             checkPieces = test.Pieces;
             DocumentHelpers.UpdateDocumentPieces(richEdit, currentPieces);
         }
@@ -108,6 +127,12 @@ namespace Grammatica2._0 {
             if (!textComplete && XtraMessageBox.Show(this, "Вы действительно хотите завершить выполнение заданий.",
                  Grammatica2._0.Properties.Resources.Grammarica20, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) {
                 e.Cancel = true;
+            }
+        }
+
+        private void sbPromt_Click(object sender, EventArgs e) {
+            using (PromtForm pf = new PromtForm(promtText)) {
+                pf.ShowDialog(this);
             }
         }
     }
