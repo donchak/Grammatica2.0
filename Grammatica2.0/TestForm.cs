@@ -85,7 +85,7 @@ namespace Grammatica2._0 {
             GramTest test = currentGramText.Tests[currentTestIndex];
             meQuestion.Text = test.Question;
             promtText = test.Promt;
-            sbPromt.Visible = !string.IsNullOrEmpty(promtText.Trim());
+            sbPromt.Visible = !string.IsNullOrEmpty(promtText);
             checkPieces = test.Pieces;
             DocumentHelpers.UpdateDocumentPieces(richEdit, currentPieces);
         }
